@@ -14,8 +14,8 @@ int		main(int argc, char **argv)
 	i = 0;
 	while (i < 10)
 	{
-		l1.data = i;
-		l1 = l1 ->next;
+		l1->data = i;
+		l1 = l1->next;
 		i++;
 	}
 }
