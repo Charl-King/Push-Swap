@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 08:24:38 by cking             #+#    #+#             */
-/*   Updated: 2018/08/06 09:40:25 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/06 10:58:15 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,13 @@ void	rot(t_list *list)
 void	revrot(t_list *list)
 {
 	t_list	*tmp;
-	t_list	new;
+	t_list	*new;
 
 	tmp = list;
 	while (tmp->next->next)
-	{
 		tmp = tmp->next;
-		new.data = tmp->next->data;
-	}
+	new = tmp->next;
+	new->next = list;
 	tmp->next = NULL;
-	new.next = list;
-	list = &new;
+	list = new;
 }
