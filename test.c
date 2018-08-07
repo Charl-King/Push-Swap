@@ -9,23 +9,16 @@ int		main(void)
 	t_node node[10];
 	int i = 0;
 
-	a.data = node;
 	a.size = 10;
 	a.top = -1;
-	while (i < a.size)
+	while (++a.top < a.size)
 	{
-		node[i].value = i;
-		i++;
-		a.top++;
-		printf("i :%d  top1 :%d\n", i, a.top);
+		printf("%d ", a.top);
+		node[a.top].value = a.top;
+		printf("%d ", node[a.top].value);
 	}
+	setdata(&a,*&node);
+	printf("\n");
 	swap(&a);
-	//printf("top2 = : %d\na.size %d\n", a.top, a.size);
-
-	i = 0;
-	while (i < a.size)
-	{
-		printf("%d\n", node[i].value);
-		i++;
-	}
+	print_stack(&a);
 }

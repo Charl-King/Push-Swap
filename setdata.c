@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extra_functions.c                                  :+:      :+:    :+:   */
+/*   setdata.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/07 16:46:15 by cking             #+#    #+#             */
-/*   Updated: 2018/08/07 16:46:15 by cking            ###   ########.fr       */
+/*   Created: 2018/08/07 17:48:50 by cking             #+#    #+#             */
+/*   Updated: 2018/08/07 17:48:50 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-void    print_stack(t_stack *stack)
+void    setdata(t_stack *stack, t_node *nodes)
 {
-    int i;
-
-    i = 0;
-    printf("---Stack data---\n");
-    while (i <= stack->top)
-    {
-        printf("%d ", stack->data[i]);
-        i++;
-        if (i % 10 == 0)
-            printf("\n");
-    }
+    stack->data = nodes;
 }

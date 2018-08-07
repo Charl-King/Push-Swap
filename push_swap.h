@@ -26,8 +26,10 @@ typedef struct		s_stack
 	int				top;
 }					t_stack;
 
-void push		(t_stack *a, t_stack *b);
-void swap		(t_stack *stack);
-void rot		(t_stack *stack);
-void revrot		(t_stack *stack);
+void	push		(t_stack *a, t_stack *b);
+void	swap		(t_stack *stack);
+void	rot		(t_stack *stack);
+void	revrot		(t_stack *stack);
+void	print_stack(t_stack *stack);
+void    setdata(t_stack *stack, t_node *nodes);
 #endif
