@@ -1,21 +1,31 @@
 
-#include "list.h"
 #include <unistd.h>
 #include <stdio.h>
-#include "push-swap.h"
+#include "push_swap.h"
 
-int		main(int argc, char **argv)
+int		main(void)
 {
-	t_list *list;
-	t_list *l1;
-	int i;
+	t_stack a;
+	t_node node[10];
+	int i = 0;
 
-	l1 = list;
-	i = 0;
-	while (i < 10)
+	a.data = node;
+	a.size = 10;
+	a.top = -1;
+	while (i < a.size)
 	{
-		l1->data = i;
-		l1 = l1->next;
+		node[i].value = i;
+		i++;
+		a.top++;
+		printf("i :%d  top1 :%d\n", i, a.top);
+	}
+	swap(&a);
+	//printf("top2 = : %d\na.size %d\n", a.top, a.size);
+
+	i = 0;
+	while (i < a.size)
+	{
+		printf("%d\n", node[i].value);
 		i++;
 	}
 }

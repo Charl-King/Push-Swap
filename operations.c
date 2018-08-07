@@ -6,25 +6,22 @@
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 08:24:38 by cking             #+#    #+#             */
-/*   Updated: 2018/08/06 11:14:49 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/07 13:29:57 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
+#include "push_swap.h"
 #include <unistd.h>
 
-void	swap(t_list *list)
+void	swap(t_stack *stack)
 {
-	int tmp;
+	t_node tmp;
 
-	if (list && list->next)
-	{
-		tmp = list->data;
-		list->next->data = list->data;
-		list->data = tmp;
-	}
+	tmp = stack->data[stack->top - 1];
+	stack->data[stack->top - 1] = stack->data[stack->top];
+	stack->data[stack->top] = tmp;
 }
-
+/*
 void	push(t_list *a, t_list *b)
 {
 	t_list *tmp;
@@ -64,4 +61,4 @@ void	revrot(t_list *list)
 	new->next = list;
 	tmp->next = NULL;
 	list = new;
-}
+}*/

@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push-swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 11:02:43 by cking             #+#    #+#             */
-/*   Updated: 2018/08/06 11:14:52 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/07 13:30:18 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH-SWAP_H
-# define PUSH-SWAP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-# include "list.h"
+typedef struct		s_node
+{
+	int				value;
+	int				rank;
+}					t_node;
 
-typedef struct	s_list
-	int data;
-	struct s_list *next;
-}				t_list;
+typedef struct		s_stack
+{
+	int				size;
+	t_node			*data;
+	int				top;
+}					t_stack;
 
-void push (t_list *a, t_list *b);
-void swap (t_list *list);
-void rot (t_list *list);
-void revrot (t_list *list);
-
+void push		(t_stack *a, t_stack *b);
+void swap		(t_stack *stack);
+void rot		(t_stack *stack);
+void revrot		(t_stack *stack);
 #endif
