@@ -21,20 +21,14 @@ void	swap(t_stack *stack)
 	stack->data[stack->top - 1] = stack->data[stack->top];
 	stack->data[stack->top] = tmp;
 }
-/*
-void	push(t_list *a, t_list *b)
+
+void	push(t_stack *a, t_stack *b)
 {
-	t_list *tmp;
-
-	if (b && a)
-	{
-		tmp = b;
-		tmp->next = a;
-		a = tmp;
-		b = b->next;
-	}
+	a->top++;
+	a->data[a->top] = b->data[b->top];
+	b->top--;
 }
-
+/*
 void	rot(t_list *list)
 {
 	t_list	*tmplist;
