@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 08:24:38 by cking             #+#    #+#             */
-/*   Updated: 2018/08/07 13:29:57 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/08 10:29:19 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,44 +15,46 @@
 
 void	swap(t_stack *stack)
 {
-	t_node tmp;
+	int tmp;
 
-	tmp = stack->data[stack->top - 1];
-	stack->data[stack->top - 1] = stack->data[stack->top];
-	stack->data[stack->top] = tmp;
+	tmp = stack->data[stack->top].value;
+	stack->data[stack->top].value = stack->data[stack->top - 1].value;
+	stack->data[stack->top - 1].value = tmp;
 }
 
 void	push(t_stack *a, t_stack *b)
 {
 	a->top++;
-	a->data[a->top] = b->data[b->top];
+	a->data[a->top].value = b->data[b->top].value;
 	b->top--;
 }
-/*
-void	rot(t_list *list)
-{
-	t_list	*tmplist;
-	t_list	new;
 
-	tmplist = list->next;
-	new.data = list->data;
-	new.next = NULL;
-	while (list->next)
-		list = list->next;
-	list->next = &new;
-	list = tmplist;
+void	rot(t_stack *stk)
+{
+	int tmp;
+	int i;
+
+	i = 0;
+	tmp = stk->data[stk->top].value;
+	while (i < stk->top)
+	{
+		stk->data[stk->top - i].value = stk->data[stk->top - i - 1].value;
+		i++;
+	}
+	stk->data[0].value = tmp;
 }
 
-void	revrot(t_list *list)
+void	revrot(t_stack *stk)
 {
-	t_list	*tmp;
-	t_list	*new;
+	int tmp;
+	int i;
 
-	tmp = list;
-	while (tmp->next->next)
-		tmp = tmp->next;
-	new = tmp->next;
-	new->next = list;
-	tmp->next = NULL;
-	list = new;
-}*/
+	tmp = stk->data[0].value;
+	i = 0;
+	while (i < stk->top)
+	{
+		stk->data[i].value = stk->data[i + 1].value;
+		i++;
+	}
+	stk->data[stk->top].value = tmp;
+}

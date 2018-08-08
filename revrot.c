@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setdata.c                                          :+:      :+:    :+:   */
+/*   revrot.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/07 17:48:50 by cking             #+#    #+#             */
-/*   Updated: 2018/08/08 09:00:35 by cking            ###   ########.fr       */
+/*   Created: 2018/08/08 14:49:04 by cking             #+#    #+#             */
+/*   Updated: 2018/08/08 14:49:46 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "push_swap.h"
 
-void    setdata(t_stack *stack, t_node *nodes)
+void	rra(t_a *a)
 {
-    stack->data = nodes;
+	revrot(&a->stka);
+}
+
+void	rrb(t_a *a)
+{
+	revrot(&a->stkb);
+}
+
+void	rrr(t_a *a)
+{
+	revrot(&a->stka);
+	revrot(&a->stkb);
 }

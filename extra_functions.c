@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extra_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 16:46:15 by cking             #+#    #+#             */
-/*   Updated: 2018/08/07 16:46:15 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/08 09:53:40 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ void    print_stack(t_stack *stack)
     printf("---Stack data---\n");
     while (i <= stack->top)
     {
-        printf("%d ", stack->data[i]);
+        printf("%d ", stack->data[i].value);
         i++;
         if (i % 10 == 0)
             printf("\n");
     }
+    printf("\n");
 }

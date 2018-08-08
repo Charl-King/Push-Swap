@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setdata.c                                          :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/07 17:48:50 by cking             #+#    #+#             */
-/*   Updated: 2018/08/08 09:00:35 by cking            ###   ########.fr       */
+/*   Created: 2018/08/08 10:51:57 by cking             #+#    #+#             */
+/*   Updated: 2018/08/08 10:56:24 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    setdata(t_stack *stack, t_node *nodes)
+void	sa(t_a *a)
 {
-    stack->data = nodes;
+	swap(&a->stka);
+}
+
+void	sb(t_a *a)
+{
+	swap(&a->stkb);
+}
+
+void	ss(t_a *a)
+{
+	swap(&a->stka);
+	swap(&a->stkb);
 }
