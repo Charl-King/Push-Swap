@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 10:17:09 by cking             #+#    #+#             */
-/*   Updated: 2018/08/08 10:28:04 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/08 15:55:09 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,25 @@
 
 int		main(void)
 {
-	t_stack		a;
-	t_stack		b;
-	t_node		node[10];
-	t_node		nodeb[10];
+	t_a			a;
+	t_node		nodea[15];
+	t_node		nodeb[15];
 	int			i;
 
 	i = 0;
-	a.size = 10;
-	b.size = 10;
-	a.top = -1;
-	b.top = -1;
-	while (i < a.size)
+	a.stka.size = 10;
+	a.stkb.size = 10;
+	a.stka.top = -1;
+	a.stkb.top = -1;
+	while (i < a.stka.size)
 	{
-		node[++a.top].value = i;
-		nodeb[++b.top].value = i;
+		nodea[++a.stka.top].value = i;
+		nodeb[++a.stkb.top].value = i;
 		i++;
 	}
-	setdata(&a, *&node);
-	setdata(&b, *&nodeb);
-	print_stack(&a);
-	revrot(&a);
-	print_stack(&a);
+	setdata(&a.stka, *&nodea);
+	setdata(&a.stkb, *&nodeb);
+	rrr(&a);
+	print_stack(&a.stka);
+	print_stack(&a.stkb);
 }
