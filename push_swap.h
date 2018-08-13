@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 11:02:43 by cking             #+#    #+#             */
-/*   Updated: 2018/08/13 11:25:32 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/13 17:10:54 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	revrot		(t_stack *stack);
 void	print_stack	(t_stack *stack);
 int		ft_cntwrd	(char const *s, char c);
 void	setdata		(t_stack *stack, t_node *nodes);
+void	error		(void);
 void	sa			(t_a *a);
 void	sb			(t_a *a);
 void	ss			(t_a *a);

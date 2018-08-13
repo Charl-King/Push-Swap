@@ -6,13 +6,14 @@
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 08:55:52 by cking             #+#    #+#             */
-/*   Updated: 2018/08/13 14:40:30 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/13 17:10:22 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
 void	set(t_a *a, int x, char **arg)
 {
@@ -44,6 +45,34 @@ void	set(t_a *a, int x, char **arg)
 	setdata(&a->stka, stacka);
 }
 
+void	func(t_a *a, char *func)
+{
+	if (!ft_strcmp(func, "pa"))
+		pa(a);
+	else if (!ft_strcmp(func, "pb"))
+		pb(a);
+	else if (!ft_strcmp(func, "sa"))
+		sa(a);
+	else if (!ft_strcmp(func, "sb"))
+		sb(a);
+	else if (!ft_strcmp(func, "ss"))
+		ss(a);
+	else if (!ft_strcmp(func, "ra"))
+		ra(a);
+	else if (!ft_strcmp(func, "rb"))
+		rb(a);
+	else if (!ft_strcmp(func, "rr"))
+		rr(a);
+	else if (!ft_strcmp(func, "rra"))
+		rra(a);
+	else if (!ft_strcmp(func, "rrb"))
+		rrb(a);
+	else if (!ft_strcmp(func, "rrr"))
+		rrr(a);
+	else
+		error();
+}
+
 int		check_sort(t_a *a)
 {
 	int i;
@@ -62,10 +91,21 @@ int		check_sort(t_a *a)
 
 int		main(int argc, char **argv)
 {
-	t_a		a;
+	t_a			a;
+	char		**line;
+	t_node		nodeb[15];
 
+	a.stkb.size = 10;
+	line = malloc(10);
+	*line = malloc(10);
 	set(&a, argc, argv);
 	a.stkb.top = -1;
+	setdata(&a.stkb, *&nodeb);
+	while (get_next_line(0, line) > 0)
+		func(&a, *line);
 
-	printf("%d\n", check_sort(&a));
+	if (check_sort(&a))
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 }
