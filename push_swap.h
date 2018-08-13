@@ -6,12 +6,14 @@
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 11:02:43 by cking             #+#    #+#             */
-/*   Updated: 2018/08/08 14:45:07 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/13 11:25:32 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# include "./libft/libft.h"
 
 typedef struct		s_node
 {
@@ -37,6 +39,7 @@ void	swap		(t_stack *stack);
 void	rot			(t_stack *stack);
 void	revrot		(t_stack *stack);
 void	print_stack	(t_stack *stack);
+int		ft_cntwrd	(char const *s, char c);
 void	setdata		(t_stack *stack, t_node *nodes);
 void	sa			(t_a *a);
 void	sb			(t_a *a);
