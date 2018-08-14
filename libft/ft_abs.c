@@ -1,44 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rot.c                                              :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/08 14:45:40 by cking             #+#    #+#             */
-/*   Updated: 2018/08/14 13:01:01 by cking            ###   ########.fr       */
+/*   Created: 2018/08/14 14:47:04 by cking             #+#    #+#             */
+/*   Updated: 2018/08/14 14:48:03 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	rot(t_stack *stk)
+int		ft_abs(int x)
 {
-	t_node	tmp;
-	int		i;
-
-	i = 0;
-	tmp = stk->data[stk->top];
-	while (i < stk->top)
-	{
-		stk->data[stk->top - i] = stk->data[stk->top - i - 1];
-		i++;
-	}
-	stk->data[0] = tmp;
-}
-
-void	ra(t_a *a)
-{
-	rot(&a->stka);
-}
-
-void	rb(t_a *a)
-{
-	rot(&a->stkb);
-}
-
-void	rr(t_a *a)
-{
-	rot(&a->stka);
-	rot(&a->stkb);
+	if (x < 0)
+		return (-x);
+	return (x);
 }

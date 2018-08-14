@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 11:02:43 by cking             #+#    #+#             */
-/*   Updated: 2018/08/14 08:52:06 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/14 14:54:37 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,15 @@ void	swap		(t_stack *stack);
 void	rot			(t_stack *stack);
 void	revrot		(t_stack *stack);
 void	print_stack	(t_stack *stack);
+void	print_rank	(t_stack *stack);
 int		ft_cntwrd	(char const *s, char c);
 void	setdata		(t_stack *stack, t_node *nodes);
 void	error		(void);
 int		check_sort	(t_a *a);
+void	func		(t_a *a, char *func);
+int		check_dupes	(t_stack stack);
+int		doc			(t_stack *stack);
+void	rank		(t_a *a);
 void	sa			(t_a *a);
 void	sb			(t_a *a);
 void	ss			(t_a *a);

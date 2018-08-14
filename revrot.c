@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 14:49:04 by cking             #+#    #+#             */
-/*   Updated: 2018/08/08 15:40:23 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/14 13:01:38 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	revrot(t_stack *stk)
 {
-	int tmp;
-	int i;
+	t_node	tmp;
+	int		i;
 
-	tmp = stk->data[0].value;
+	tmp = stk->data[0];
 	i = 0;
 	while (i < stk->top)
 	{
-		stk->data[i].value = stk->data[i + 1].value;
+		stk->data[i] = stk->data[i + 1];
 		i++;
 	}
-	stk->data[stk->top].value = tmp;
+	stk->data[stk->top] = tmp;
 }
 
 void	rra(t_a *a)

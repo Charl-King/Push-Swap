@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 12:20:43 by cking             #+#    #+#             */
-/*   Updated: 2018/08/08 15:47:40 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/14 12:56:13 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	push(t_stack *a, t_stack *b)
 {
-	a->top++;
-	a->data[a->top].value = b->data[b->top].value;
-	b->top--;
+	if (b->top > -1)
+	{
+		a->top++;
+		a->data[a->top] = b->data[b->top];
+		b->top--;
+	}
 }
 
 void	pa(t_a *a)

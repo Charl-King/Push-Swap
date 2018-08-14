@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 08:55:52 by cking             #+#    #+#             */
-/*   Updated: 2018/08/14 09:35:01 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/14 16:50:38 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	set(t_a *a, int x, char **argv)
 	{
 		if (ft_strequ(a->args[size - 1], ft_itoa(ft_atoi(a->args[size - 1]))))
 		{
-			stacka[size - 1].value = ft_atoi(a->args[size - 1]);
+			stacka[a->stka.size - size].value = ft_atoi(a->args[size - 1]);
 			a->stka.top++;
 			size--;
 		}
@@ -56,35 +56,9 @@ void	set(t_a *a, int x, char **argv)
 			error();
 	}
 	setdata(&a->stka, stacka);
-	setdata(&a->stkb, stackb);
-}
-
-void	func(t_a *a, char *func)
-{
-	if (!ft_strcmp(func, "pa"))
-		pa(a);
-	else if (!ft_strcmp(func, "pb"))
-		pb(a);
-	else if (!ft_strcmp(func, "sa"))
-		sa(a);
-	else if (!ft_strcmp(func, "sb"))
-		sb(a);
-	else if (!ft_strcmp(func, "ss"))
-		ss(a);
-	else if (!ft_strcmp(func, "ra"))
-		ra(a);
-	else if (!ft_strcmp(func, "rb"))
-		rb(a);
-	else if (!ft_strcmp(func, "rr"))
-		rr(a);
-	else if (!ft_strcmp(func, "rra"))
-		rra(a);
-	else if (!ft_strcmp(func, "rrb"))
-		rrb(a);
-	else if (!ft_strcmp(func, "rrr"))
-		rrr(a);
-	else
+	if (check_dupes(a->stka))
 		error();
+	setdata(&a->stkb, stackb);
 }
 
 int		main(int argc, char **argv)
@@ -95,6 +69,7 @@ int		main(int argc, char **argv)
 	line = malloc(10);
 	*line = malloc(10);
 	set(&a, argc, argv);
+	rank(&a);
 	while (get_next_line(0, line) > 0)
 		func(&a, *line);
 	if (check_sort(&a))
