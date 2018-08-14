@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 16:46:15 by cking             #+#    #+#             */
-/*   Updated: 2018/08/13 17:11:02 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/14 08:48:19 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void		print_stack(t_stack *stack)
 {
-	int i;
+	int				i;
 
 	i = 0;
 	printf("---Stack data---\n");
@@ -52,4 +52,25 @@ void		error(void)
 {
 	write(1, "Error\n", 6);
 	exit(1);
+}
+
+int			check_sort(t_a *a)
+{
+	int				i;
+
+	i = 0;
+	if (a->stkb.top != -1)
+		return (0);
+	while (i < a->stka.size - 1)
+	{
+		if (a->stka.data[i].value >= a->stka.data[i + 1].value)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void		setdata(t_stack *stack, t_node *nodes)
+{
+	stack->data = nodes;
 }
