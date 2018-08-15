@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extra_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 16:46:15 by cking             #+#    #+#             */
-/*   Updated: 2018/08/14 13:22:30 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/15 11:43:54 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,48 +29,18 @@ void		print_stack(t_stack *stack)
 	printf("\n");
 }
 
-int			ft_cntwrd(char const *s, char c)
-{
-	unsigned int	i;
-	int				cntr;
-
-	i = 0;
-	cntr = 0;
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != '\0')
-			cntr++;
-		while (s[i] && (s[i] != c))
-			i++;
-	}
-	return (cntr);
-}
-
-void		error(void)
-{
-	write(1, "Error\n", 6);
-	exit(1);
-}
-
-int			check_sort(t_a *a)
+void		print_rank(t_stack *stack)
 {
 	int				i;
 
 	i = 0;
-	if (a->stkb.top != -1)
-		return (0);
-	while (i < a->stka.size - 1)
+	printf("---Stack data---\n");
+	while (i <= stack->top)
 	{
-		if (a->stka.data[i].value < a->stka.data[i + 1].value)
-			return (0);
+		printf("%d ", stack->data[i].rank);
 		i++;
+		if (i % 10 == 0)
+			printf("\n");
 	}
-	return (1);
-}
-
-void		setdata(t_stack *stack, t_node *nodes)
-{
-	stack->data = nodes;
+	printf("\n");
 }

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   functions.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 10:26:23 by cking             #+#    #+#             */
-/*   Updated: 2018/08/14 16:50:19 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/15 15:49:01 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	func(t_a *a, char *func)
 {
@@ -39,9 +38,6 @@ void	func(t_a *a, char *func)
 		rrr(a);
 	else
 		error();
-	ft_putstr("DOC :");
-	ft_putnbr(doc(&a->stka));
-	ft_putchar('\n');
 }
 
 int		check_dupes(t_stack stack)
@@ -99,4 +95,14 @@ int		doc(t_stack *stack)
 		i++;
 	}
 	return (doc);
+}
+
+void		sort3(t_stack *stack)
+{
+	if (stack->data[stack->top].rank == 1)
+		swap(stack);
+	if (stack->data[stack->top - 1].rank == 1)
+		revrot(stack);
+	if (stack->data[stack->top].rank == 2)
+		swap(stack);
 }

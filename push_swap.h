@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 11:02:43 by cking             #+#    #+#             */
-/*   Updated: 2018/08/14 14:54:37 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/15 15:50:15 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# define FRACT 5
 
 # include "./libft/libft.h"
 
@@ -49,6 +50,10 @@ void	func		(t_a *a, char *func);
 int		check_dupes	(t_stack stack);
 int		doc			(t_stack *stack);
 void	rank		(t_a *a);
+void	set_args	(t_a *a, int x, char **args);
+void	set			(t_a *a, int x, char **argv);
+int		max_rank	(t_stack *stack);
+void	sort3		(t_stack *stack);
 void	sa			(t_a *a);
 void	sb			(t_a *a);
 void	ss			(t_a *a);

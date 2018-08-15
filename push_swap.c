@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/13 08:55:52 by cking             #+#    #+#             */
-/*   Updated: 2018/08/15 09:03:11 by cking            ###   ########.fr       */
+/*   Created: 2018/08/15 08:47:13 by cking             #+#    #+#             */
+/*   Updated: 2018/08/15 16:00:44 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,25 @@
 
 int		main(int argc, char **argv)
 {
-	t_a			a;
-	char		**line;
+	t_a		a;
+	int		i;
+	int		max;
 
-	line = malloc(10);
-	*line = malloc(10);
 	set(&a, argc, argv);
 	rank(&a);
-	while (get_next_line(0, line) > 0)
-		func(&a, *line);
-	if (check_sort(&a))
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
+	i = 1;
+	while (a.stka.top >= 3)
+	{
+		while (a.stka.top >= a.stka.size - (a.stka.size / FRACT * i))
+		{
+			if (a.stka.data[a.stka.top].rank <= (a.stka.size / FRACT * i))
+				pb(&a);
+			ra(&a);
+		}
+		i++;
+	}
+	sort3(&a.stka);
+	print_stack(&a.stka);
+	print_rank(&a.stka);
+	max = max_rank(&a.stkb);
 }
