@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 16:46:15 by cking             #+#    #+#             */
-/*   Updated: 2018/08/15 11:43:54 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/16 11:31:03 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,23 @@ void		print_rank(t_stack *stack)
 			printf("\n");
 	}
 	printf("\n");
+}
+
+int			doc(t_stack *stack)
+{
+	int		i;
+	int		add;
+	int		doc;
+
+	i = 0;
+	doc = 0;
+	while (i < stack->size)
+	{
+		add = ft_abs(i + 1 - stack->data[i].rank);
+		if ((stack->size - add) < add)
+			add = stack->size - add;
+		doc += add;
+		i++;
+	}
+	return (doc);
 }

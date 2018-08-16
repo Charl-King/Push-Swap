@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 09:01:29 by cking             #+#    #+#             */
-/*   Updated: 2018/08/15 15:07:39 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/16 09:26:16 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,28 @@ void		set(t_a *a, int x, char **argv)
 	setdata(&a->stkb, stackb);
 }
 
-int			max_rank(t_stack *stack)
+int			min_rank(t_stack *stack)
 {
-	int		max;
+	int		min;
 	int		i;
 
-	max = 0;
+	min = stack->size;
 	i = 0;
-	while (i <= stack->size)
+	while (i <= stack->top)
 	{
-		if (stack->data[i].rank > max)
-			max = stack->data[i].rank;
+		if (stack->data[i].rank < min)
+			min = stack->data[i].rank;
 		i++;
 	}
-	return (max);
+	return (min);
+}
+
+int			get_pos(t_stack *stack, int rank)
+{
+	int pos;
+
+	pos = stack->top;
+	while (stack->data[pos].rank != rank)
+		pos--;
+	return (pos);
 }

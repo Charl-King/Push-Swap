@@ -6,38 +6,44 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 10:26:23 by cking             #+#    #+#             */
-/*   Updated: 2018/08/15 15:49:01 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/16 10:04:25 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	func(t_a *a, char *func)
+void	func(t_a *a, char *funct)
 {
-	if (!ft_strcmp(func, "pa"))
+	if (!ft_strcmp(funct, "pa"))
 		pa(a);
-	else if (!ft_strcmp(func, "pb"))
+	else if (!ft_strcmp(funct, "pb"))
 		pb(a);
-	else if (!ft_strcmp(func, "sa"))
+	else if (!ft_strcmp(funct, "sa"))
 		sa(a);
-	else if (!ft_strcmp(func, "sb"))
+	else if (!ft_strcmp(funct, "sb"))
 		sb(a);
-	else if (!ft_strcmp(func, "ss"))
+	else if (!ft_strcmp(funct, "ss"))
 		ss(a);
-	else if (!ft_strcmp(func, "ra"))
+	else if (!ft_strcmp(funct, "ra"))
 		ra(a);
-	else if (!ft_strcmp(func, "rb"))
+	else if (!ft_strcmp(funct, "rb"))
 		rb(a);
-	else if (!ft_strcmp(func, "rr"))
+	else if (!ft_strcmp(funct, "rr"))
 		rr(a);
-	else if (!ft_strcmp(func, "rra"))
+	else if (!ft_strcmp(funct, "rra"))
 		rra(a);
-	else if (!ft_strcmp(func, "rrb"))
+	else if (!ft_strcmp(funct, "rrb"))
 		rrb(a);
-	else if (!ft_strcmp(func, "rrr"))
+	else if (!ft_strcmp(funct, "rrr"))
 		rrr(a);
 	else
 		error();
+}
+
+void	pfunc(t_a *a, char *funct)
+{
+	func(a, funct);
+	ft_putendl(funct);
 }
 
 int		check_dupes(t_stack stack)
@@ -78,31 +84,12 @@ void	rank(t_a *a)
 	}
 }
 
-int		doc(t_stack *stack)
+void	sort3(t_a *a)
 {
-	int		i;
-	int		add;
-	int		doc;
-
-	i = 0;
-	doc = 0;
-	while (i < stack->size)
-	{
-		add = ft_abs(i + 1 - stack->data[i].rank);
-		if ((stack->size - add) < add)
-			add = stack->size - add;
-		doc += add;
-		i++;
-	}
-	return (doc);
-}
-
-void		sort3(t_stack *stack)
-{
-	if (stack->data[stack->top].rank == 1)
-		swap(stack);
-	if (stack->data[stack->top - 1].rank == 1)
-		revrot(stack);
-	if (stack->data[stack->top].rank == 2)
-		swap(stack);
+	if (a->stka.data[a->stka.top].rank == 1)
+		pfunc(a, "sa");
+	if (a->stka.data[a->stka.top - 1].rank == 1)
+		pfunc(a, "rra");
+	if (a->stka.data[a->stka.top].rank == 2)
+		pfunc(a, "sa");
 }
