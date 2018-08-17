@@ -6,7 +6,7 @@
 #    By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/16 11:19:38 by cking             #+#    #+#              #
-#    Updated: 2018/08/16 12:17:27 by cking            ###   ########.fr        #
+#    Updated: 2018/08/17 10:15:32 by cking            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,10 @@ all:	$(NAME1) $(NAME2)
 lib:	make re -C ./libft/
 
 SRC1= checker.c push.c swap.c revrot.c rot.c functions.c functions2.c functions3.c\
-extra_functions.c
+extra_functions.c functions4.c
 
 SRC2= push_swap.c push.c swap.c revrot.c rot.c functions.c functions2.c functions3.c\
-extra_functions.c
+extra_functions.c functions4.c
 
 OBJ1= $(SRC1:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 11:02:43 by cking             #+#    #+#             */
-/*   Updated: 2018/08/16 15:05:55 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/17 10:39:52 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct		s_a
 	t_stack			stka;
 	t_stack			stkb;
 	char			**args;
+	int				fract;
 }					t_a;
 
 void				push		(t_stack *a, t_stack *b);
@@ -56,6 +57,9 @@ void				set			(t_a *a, int x, char **argv);
 int					min_rank	(t_stack *stack);
 void				sort3		(t_a *a);
 int					get_pos		(t_stack *stack, int rank);
+void				set_fract	(t_a *a);
+void				push_blocks	(t_a *a);
+void				push_back	(t_a *a);
 void				sa			(t_a *a);
 void				sb			(t_a *a);
 void				ss			(t_a *a);
