@@ -6,7 +6,7 @@
 #    By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/16 11:19:38 by cking             #+#    #+#              #
-#    Updated: 2018/08/20 15:52:47 by cking            ###   ########.fr        #
+#    Updated: 2018/08/20 16:44:09 by cking            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,3 +46,4 @@ fclean:		clean
 		rm -rf $(NAME2)
 
 re:		fclean all
+		make clean
