@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 08:58:52 by cking             #+#    #+#             */
-/*   Updated: 2018/08/16 12:50:04 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/20 15:12:43 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int			check_sort(t_a *a)
 		return (0);
 	while (i < a->stka.size - 1)
 	{
-		if (a->stka.data[i].value < a->stka.data[i + 1].value)
+		if (a->stka.data[i] > a->stka.data[i + 1])
 			return (0);
 		i++;
 	}

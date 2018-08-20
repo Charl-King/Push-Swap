@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   revrot.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 14:49:04 by cking             #+#    #+#             */
-/*   Updated: 2018/08/14 13:01:38 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/20 14:30:49 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	revrot(t_stack *stk)
 {
-	t_node	tmp;
+	int	tmp;
 	int		i;
 
 	tmp = stk->data[0];

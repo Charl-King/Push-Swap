@@ -6,16 +6,11 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 09:01:29 by cking             #+#    #+#             */
-/*   Updated: 2018/08/16 09:26:16 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/20 15:12:44 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void		setdata(t_stack *stack, t_node *nodes)
-{
-	stack->data = nodes;
-}
 
 void		set_args(t_a *a, int x, char **args)
 {
@@ -36,13 +31,11 @@ void		set_args(t_a *a, int x, char **args)
 
 void		set(t_a *a, int x, char **argv)
 {
-	t_node	*stacka;
-	t_node	*stackb;
 	int		size;
 
 	set_args(a, x, argv);
-	stacka = malloc(sizeof(t_node) * a->stka.size);
-	stackb = malloc(sizeof(t_node) * a->stkb.size);
+	a->stka.data = malloc(sizeof(int) * a->stka.size);
+	a->stkb.data = malloc(sizeof(int) * a->stkb.size);
 	a->stka.top = -1;
 	a->stkb.top = -1;
 	size = a->stka.size;
@@ -50,17 +43,13 @@ void		set(t_a *a, int x, char **argv)
 	{
 		if (ft_strequ(a->args[size - 1], ft_itoa(ft_atoi(a->args[size - 1]))))
 		{
-			stacka[a->stka.size - size].value = ft_atoi(a->args[size - 1]);
+			a->stka.data[a->stka.size - size] = ft_atoi(a->args[size - 1]);
 			a->stka.top++;
 			size--;
 		}
 		else
 			error();
 	}
-	setdata(&a->stka, stacka);
-	if (check_dupes(a->stka))
-		error();
-	setdata(&a->stkb, stackb);
 }
 
 int			min_rank(t_stack *stack)
@@ -72,8 +61,8 @@ int			min_rank(t_stack *stack)
 	i = 0;
 	while (i <= stack->top)
 	{
-		if (stack->data[i].rank < min)
-			min = stack->data[i].rank;
+		if (stack->data[i] < min)
+			min = stack->data[i];
 		i++;
 	}
 	return (min);
@@ -84,7 +73,7 @@ int			get_pos(t_stack *stack, int rank)
 	int pos;
 
 	pos = stack->top;
-	while (stack->data[pos].rank != rank)
+	while (stack->data[pos] != rank)
 		pos--;
 	return (pos);
 }

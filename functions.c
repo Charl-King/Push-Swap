@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 10:26:23 by cking             #+#    #+#             */
-/*   Updated: 2018/08/16 10:04:25 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/20 15:13:29 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,18 @@ void	pfunc(t_a *a, char *funct)
 	ft_putendl(funct);
 }
 
-int		check_dupes(t_stack stack)
+int		check_dupes(t_stack *stack)
 {
 	int i;
 	int j;
 
 	i = 0;
-	while (i < stack.size)
+	while (i < stack->size)
 	{
 		j = i + 1;
-		while (j < stack.size)
+		while (j < stack->size)
 		{
-			if (stack.data[i].value == stack.data[j].value)
+			if (stack->data[i] == stack->data[j])
 				return (1);
 			j++;
 		}
@@ -66,30 +66,35 @@ int		check_dupes(t_stack stack)
 	return (0);
 }
 
-void	rank(t_a *a)
+void	rank(t_stack *stack)
 {
 	int		i;
 	int		j;
-	int		rank;
+	int		*rank;
 
 	i = 0;
-	while (i < a->stka.size)
+	rank = malloc(sizeof(int) * stack->size);
+	while (i < stack->size)
 	{
 		j = 0;
-		rank = a->stka.size;
-		while (j < a->stka.size)
-			if (a->stka.data[j++].value < a->stka.data[i].value)
-				rank--;
-		a->stka.data[i++].rank = rank;
+		rank[i] = stack->size;
+		while (j < stack->size)
+			if (stack->data[j++] < stack->data[i])
+				rank[i]--;
+		i++;
 	}
+	i = -1;
+	while (++i < stack->size)
+		stack->data[i] = rank[i];
+	free(rank);
 }
 
 void	sort3(t_a *a)
 {
-	if (a->stka.data[a->stka.top].rank == 1)
+	if (a->stka.data[a->stka.top] == 1)
 		pfunc(a, "sa");
-	if (a->stka.data[a->stka.top - 1].rank == 1)
+	if (a->stka.data[a->stka.top - 1] == 1)
 		pfunc(a, "rra");
-	if (a->stka.data[a->stka.top].rank == 2)
+	if (a->stka.data[a->stka.top] == 2)
 		pfunc(a, "sa");
 }

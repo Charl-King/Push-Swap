@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 11:02:43 by cking             #+#    #+#             */
-/*   Updated: 2018/08/17 10:39:52 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/20 14:19:21 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,10 @@
 
 # include "./libft/libft.h"
 
-typedef struct		s_node
-{
-	int				value;
-	int				rank;
-}					t_node;
-
 typedef struct		s_stack
 {
 	int				size;
-	t_node			*data;
+	int				*data;
 	int				top;
 }					t_stack;
 
@@ -44,14 +38,13 @@ void				revrot		(t_stack *stack);
 void				print_stack	(t_stack *stack);
 void				print_rank	(t_stack *stack);
 int					ft_cntwrd	(char const *s, char c);
-void				setdata		(t_stack *stack, t_node *nodes);
 void				error		(void);
 int					check_sort	(t_a *a);
 void				func		(t_a *a, char *funct);
 void				pfunc		(t_a *a, char *funct);
-int					check_dupes	(t_stack stack);
+int					check_dupes	(t_stack *stack);
 int					doc			(t_stack *stack);
-void				rank		(t_a *a);
+void				rank		(t_stack *stack);
 void				set_args	(t_a *a, int x, char **args);
 void				set			(t_a *a, int x, char **argv);
 int					min_rank	(t_stack *stack);
@@ -60,6 +53,7 @@ int					get_pos		(t_stack *stack, int rank);
 void				set_fract	(t_a *a);
 void				push_blocks	(t_a *a);
 void				push_back	(t_a *a);
+void				free_a		(t_a *a);
 void				sa			(t_a *a);
 void				sb			(t_a *a);
 void				ss			(t_a *a);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 10:51:57 by cking             #+#    #+#             */
-/*   Updated: 2018/08/14 12:58:54 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/20 14:31:06 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	swap(t_stack *stack)
 {
-	t_node tmp;
+	int tmp;
 
 	if (stack->top > 0)
 	{

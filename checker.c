@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 08:55:52 by cking             #+#    #+#             */
-/*   Updated: 2018/08/15 09:03:11 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/20 15:12:46 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		main(int argc, char **argv)
 	line = malloc(10);
 	*line = malloc(10);
 	set(&a, argc, argv);
-	rank(&a);
+	rank(&a.stka);
 	while (get_next_line(0, line) > 0)
 		func(&a, *line);
 	if (check_sort(&a))
