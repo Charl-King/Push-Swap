@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 08:55:52 by cking             #+#    #+#             */
-/*   Updated: 2018/08/20 15:12:46 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/21 10:18:30 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ int		main(int argc, char **argv)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
+	exit(0);
 }
