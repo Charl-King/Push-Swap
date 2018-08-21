@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 10:26:23 by cking             #+#    #+#             */
-/*   Updated: 2018/08/20 15:13:29 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/21 17:29:22 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,24 +77,14 @@ void	rank(t_stack *stack)
 	while (i < stack->size)
 	{
 		j = 0;
-		rank[i] = stack->size;
+		rank[i] = 1;
 		while (j < stack->size)
 			if (stack->data[j++] < stack->data[i])
-				rank[i]--;
+				rank[i]++;
 		i++;
 	}
 	i = -1;
 	while (++i < stack->size)
 		stack->data[i] = rank[i];
 	free(rank);
-}
-
-void	sort3(t_a *a)
-{
-	if (a->stka.data[a->stka.top] == 1)
-		pfunc(a, "sa");
-	if (a->stka.data[a->stka.top - 1] == 1)
-		pfunc(a, "rra");
-	if (a->stka.data[a->stka.top] == 2)
-		pfunc(a, "sa");
 }

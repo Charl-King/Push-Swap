@@ -6,7 +6,7 @@
 #    By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/16 11:19:38 by cking             #+#    #+#              #
-#    Updated: 2018/08/20 16:44:09 by cking            ###   ########.fr        #
+#    Updated: 2018/08/21 17:34:06 by cking            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,10 @@ lib:
 	make clean -C ./libft/
 
 SRC1= checker.c push.c swap.c revrot.c rot.c functions.c functions2.c functions3.c\
-extra_functions.c functions4.c
+extra_functions.c functions4.c sort5.c
 
 SRC2= push_swap.c push.c swap.c revrot.c rot.c functions.c functions2.c functions3.c\
-extra_functions.c functions4.c
+extra_functions.c functions4.c sort5.c
 
 OBJ1= $(SRC1:.c=.o)
 

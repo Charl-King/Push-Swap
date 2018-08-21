@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 11:02:43 by cking             #+#    #+#             */
-/*   Updated: 2018/08/20 14:19:21 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/21 17:33:07 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void				swap		(t_stack *stack);
 void				rot			(t_stack *stack);
 void				revrot		(t_stack *stack);
 void				print_stack	(t_stack *stack);
-void				print_rank	(t_stack *stack);
+void				insert_start(t_a *a);
 int					ft_cntwrd	(char const *s, char c);
 void				error		(void);
 int					check_sort	(t_a *a);
@@ -49,11 +49,12 @@ void				set_args	(t_a *a, int x, char **args);
 void				set			(t_a *a, int x, char **argv);
 int					min_rank	(t_stack *stack);
 void				sort3		(t_a *a);
+void				sort5		(t_a *a);
 int					get_pos		(t_stack *stack, int rank);
 void				set_fract	(t_a *a);
 void				push_blocks	(t_a *a);
 void				push_back	(t_a *a);
-void				free_a		(t_a *a);
+int					check_stack	(t_stack stk);
 void				sa			(t_a *a);
 void				sb			(t_a *a);
 void				ss			(t_a *a);

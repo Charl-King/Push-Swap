@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 16:46:15 by cking             #+#    #+#             */
-/*   Updated: 2018/08/20 14:17:44 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/21 17:24:59 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,20 @@ int			doc(t_stack *stack)
 		i++;
 	}
 	return (doc);
+}
+
+int			check_stack(t_stack stk)
+{
+	int				i;
+
+	i = 0;
+	if (stk.top == -1)
+		return (1);
+	while (i < stk.top)
+	{
+		if (stk.data[i] > stk.data[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
 }

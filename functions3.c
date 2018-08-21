@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 09:01:29 by cking             #+#    #+#             */
-/*   Updated: 2018/08/21 10:18:32 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/21 18:09:09 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,21 @@ void		set_args(t_a *a, int x, char **args)
 void		set(t_a *a, int x, char **argv)
 {
 	int		size;
+	int		n;
 	char	*temp;
 
 	set_args(a, x, argv);
 	a->stka.data = malloc(sizeof(int) * a->stka.size);
 	a->stkb.data = malloc(sizeof(int) * a->stkb.size);
 	a->stka.top = -1;
-	a->stkb.top = -1;
 	size = a->stka.size;
 	while (size >= 1)
 	{
 		temp = ft_itoa(ft_atoi(a->args[size - 1]));
+		n = a->stka.size - size;
 		if (ft_strequ(a->args[size - 1], temp))
 		{
-			a->stka.data[a->stka.size - size] = ft_atoi(a->args[size - 1]);
+			a->stka.data[n] = ft_atoi(a->args[n]);
 			a->stka.top++;
 			size--;
 		}
@@ -51,8 +52,6 @@ void		set(t_a *a, int x, char **argv)
 			error();
 		free(temp);
 	}
-	//if (temp)
-		// free(temp);
 }
 
 int			min_rank(t_stack *stack)

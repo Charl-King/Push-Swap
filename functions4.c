@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 10:10:36 by cking             #+#    #+#             */
-/*   Updated: 2018/08/20 14:27:53 by cking            ###   ########.fr       */
+/*   Updated: 2018/08/21 18:11:34 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ void		push_blocks(t_a *a)
 	int i;
 
 	i = a->fract - 1;
-	while (a->stka.top >= 3)
+	while (a->stka.top > 5)
 	{
 		while (a->stka.top > a->stka.size / a->fract * i\
-		&& a->stka.top >= 3)
+		&& a->stka.top > 4)
 		{
 			if (a->stka.data[a->stka.top] > a->stka.size / a->fract\
-			* i + 1 && a->stka.data[a->stka.top] > 3)
+			* i - 1 && a->stka.data[a->stka.top] > 4)
 				pfunc(a, "pb");
 			pfunc(a, "ra");
+			i--;
 		}
-		i--;
 	}
 }
 
